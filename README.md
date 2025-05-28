@@ -1,26 +1,32 @@
 # 🧮 Educational Scientific Calculator
 
-This is an educational calculator program written in Python that performs comprehensive mathematical operations including basic arithmetic and advanced scientific functions. The calculator demonstrates programming concepts while providing practical mathematical computing capabilities using Python's built-in math module.
+This is an enhanced educational calculator program written in Python that performs comprehensive mathematical operations including basic arithmetic and advanced scientific functions. The application serves as a practical demonstration tool for programming education while providing access to essential mathematical computing capabilities through Python's built-in math module.
 
 ## 🚀 Features
 
-### Basic Arithmetic Operations (Operations 1-4)
-- Add two numbers
-- Subtract two numbers  
-- Multiply two numbers
-- Divide two numbers (with division by zero handling)
+### Basic Arithmetic Operations (4 operations)
+- **Addition**: Add two numbers with floating-point precision
+- **Subtraction**: Subtract two numbers with full decimal support
+- **Multiplication**: Multiply two numbers with accurate results
+- **Division**: Divide two numbers with division by zero protection
 
-### Advanced Scientific Operations (Operations 5-9)
-- **Power calculations**: Compute x raised to the power of y (x**y)
-- **Square root**: Calculate square root of a number (with negative input validation)
-- **Sine function**: Calculate sine of an angle in radians
-- **Cosine function**: Calculate cosine of an angle in radians  
-- **Natural logarithm**: Calculate natural logarithm of a number (with domain validation)
+### Advanced Scientific Operations (5 operations)
+- **Power**: Calculate x raised to the power of y using exponentiation (x**y)
+- **Square Root**: Compute square root using math.sqrt() with negative input validation
+- **Sine**: Calculate sine of angle in radians using math.sin()
+- **Cosine**: Calculate cosine of angle in radians using math.cos()
+- **Logarithm**: Compute natural logarithm using math.log() with domain validation
+
+### Additional Features
+- **Enhanced Error Handling**: Domain-specific validation for scientific functions
+- **Interactive Menu System**: User-friendly 9-option menu navigation
+- **Educational Error Messages**: Descriptive guidance for mathematical constraints
+- **Session Management**: Continuous operation with graceful exit option
 
 ## 📦 Requirements
 
-- Python 3.x
-- Python `math` module (included in Python standard library)
+- **Python 3.x**: Any version supporting the standard library
+- **Math Module**: Integrated from Python standard library (no external dependencies)
 
 ## 🛠️ How to Run
 
@@ -33,122 +39,116 @@ This is an educational calculator program written in Python that performs compre
 python calculator.py
 ```
 
-## 💡 Usage Instructions
+## 🎯 Usage
 
-The calculator presents an interactive menu with 9 mathematical operations:
+When you run the calculator, you'll see a menu with 9 mathematical operations plus an exit option:
 
 ```
-Select operation:
-1. Add
-2. Subtract  
-3. Multiply
-4. Divide
-5. Power (x**y)
+Scientific Calculator Menu:
+1. Addition
+2. Subtraction  
+3. Multiplication
+4. Division
+5. Power (x^y)
 6. Square Root
 7. Sine (radians)
 8. Cosine (radians)
-9. Natural Logarithm
+9. Logarithm (natural log)
+10. Exit
+
+Select an operation (1-10):
 ```
 
-### Operation Types
+### Example Usage
 
-**Two-operand operations** (1-5): You'll be prompted to enter two numbers
-- Examples: Addition, Subtraction, Multiplication, Division, Power
+**Basic Arithmetic Example:**
+```
+Select operation: 1
+Enter first number: 15.5
+Enter second number: 4.5
+Result: 15.5 + 4.5 = 20.0
+```
 
-**Single-operand operations** (6-9): You'll be prompted to enter one number
-- Examples: Square Root, Sine, Cosine, Natural Logarithm
+**Scientific Function Example:**
+```
+Select operation: 7
+Enter angle in radians: 1.5708
+Result: sin(1.5708) = 1.0
+```
 
-### Important Notes
+## 🔬 Scientific Functions
 
-⚠️ **Trigonometric Functions**: Sine and cosine functions expect input in **radians**, not degrees
+### Important Notes for Scientific Operations
+
+**Trigonometric Functions (Sine & Cosine):**
+- Input values must be in **radians**, not degrees
 - To convert degrees to radians: radians = degrees × π/180
 - Common radian values: π/2 ≈ 1.5708, π ≈ 3.1416, 2π ≈ 6.2832
 
-⚠️ **Domain Constraints**: 
-- Square root operations require non-negative input (x ≥ 0)
-- Natural logarithm operations require positive input (x > 0)
+**Domain Constraints:**
+- **Square Root**: Only accepts non-negative numbers (x ≥ 0)
+- **Logarithm**: Only accepts positive numbers (x > 0)
+- **Power**: Accepts any real numbers for base and exponent
+
+**Error Handling:**
+- Invalid domain inputs display educational error messages
+- Application continues running after errors for learning reinforcement
+- All scientific functions maintain floating-point precision
 
 ## 🧪 Testing
 
-The project includes comprehensive unit tests using Python's built-in `unittest` framework:
+The calculator includes comprehensive unit tests to ensure mathematical accuracy and error handling reliability:
 
 ### Running Tests
 
-Execute the test suite using:
+Execute the test suite using Python's built-in unittest framework:
 
 ```bash
 python -m unittest test_calculator.py
 ```
 
-Or for verbose output:
+Or run with verbose output:
 
-```bash  
+```bash
 python -m unittest test_calculator.py -v
 ```
 
 ### Test Coverage
 
 The test suite covers:
-- **Arithmetic Functions**: All basic operations with edge cases
-- **Scientific Functions**: Advanced mathematical operations with domain validation
-- **Error Handling**: Input validation and mathematical constraint violations
-- **Domain-Specific Tests**: Negative square root and invalid logarithm inputs
+- **All 9 mathematical functions**: Addition, subtraction, multiplication, division, power, square root, sine, cosine, logarithm
+- **Domain constraint validation**: Negative square root inputs, zero/negative logarithm inputs
+- **Error handling scenarios**: Division by zero, invalid input types
+- **Mathematical accuracy**: Verification against known mathematical values
+- **Edge cases**: Boundary conditions and floating-point precision limits
 
 ### Test Organization
 
-- `TestArithmeticOperations`: Tests for basic arithmetic functions
-- `TestScientificOperations`: Tests for advanced mathematical functions  
-- `TestErrorHandling`: Tests for input validation and error conditions
+```
+TestArithmeticOperations: Tests for basic arithmetic functions (1-4)
+TestScientificOperations: Tests for scientific functions (5-9) 
+TestErrorHandling: Input validation and domain constraint testing
+```
 
-## 🎯 Educational Value
+## 📚 Educational Purpose
 
-This calculator demonstrates key programming concepts:
+This calculator is designed as an educational tool that demonstrates:
 
-- **Function Purity**: Mathematical operations without side effects
-- **Exception Handling**: Robust error management with ValueError handling
-- **Standard Library Usage**: Integration with Python's math module
-- **Domain-Specific Validation**: Mathematical constraint handling
-- **Control Flow**: Menu navigation and program structure
-- **Type Conversion**: String-to-float input processing
+- **Programming Concepts**: Function design, error handling, user input validation
+- **Mathematical Computing**: Integration with Python's math module for scientific operations
+- **Software Architecture**: Clean code organization with pure functions and separation of concerns
+- **Testing Practices**: Comprehensive unit testing with domain-specific validation
+- **STEM Learning**: Practical application of mathematical concepts in programming
 
-## 🔧 Technical Implementation
+The application maintains zero external dependencies while providing access to advanced mathematical functions, making it ideal for programming education and computational learning scenarios.
 
-- **Architecture**: Single-file procedural programming design
-- **Dependencies**: Zero external dependencies (Python standard library only)
-- **Error Handling**: Comprehensive validation for mathematical domain constraints
-- **Cross-Platform**: Compatible with Windows, macOS, and Linux
-- **Performance**: Sub-millisecond operation execution
+## 🎓 Learning Outcomes
 
-## 📚 Mathematical Functions Reference
+Students working with this calculator will gain experience with:
 
-| Operation | Function | Input Requirements | Example |
-|-----------|----------|-------------------|---------|
-| Addition | `add(x, y)` | Two numbers | `add(5, 3) = 8` |
-| Subtraction | `subtract(x, y)` | Two numbers | `subtract(10, 4) = 6` |
-| Multiplication | `multiply(x, y)` | Two numbers | `multiply(6, 7) = 42` |
-| Division | `divide(x, y)` | Two numbers, y ≠ 0 | `divide(15, 3) = 5` |
-| Power | `power(x, y)` | Two numbers | `power(2, 3) = 8` |
-| Square Root | `square_root(x)` | x ≥ 0 | `square_root(9) = 3` |
-| Sine | `sine(x)` | Angle in radians | `sine(π/2) ≈ 1` |
-| Cosine | `cosine(x)` | Angle in radians | `cosine(0) = 1` |
-| Natural Log | `logarithm(x)` | x > 0 | `logarithm(e) ≈ 1` |
-
-## 🚨 Error Handling
-
-The calculator gracefully handles various error conditions:
-
-- **Invalid Input**: Non-numeric input values
-- **Division by Zero**: Prevents mathematical errors
-- **Negative Square Roots**: Domain validation with descriptive error messages  
-- **Invalid Logarithms**: Zero or negative input validation
-- **Menu Selection**: Invalid operation choice handling
-
-## 🤝 Contributing
-
-This project serves as an educational tool. When contributing:
-
-1. Maintain the single-file architecture
-2. Preserve zero external dependency requirement
-3. Include comprehensive error handling
-4. Add corresponding unit tests for new functions
-5. Update documentation for any new features
+- Python standard library integration (math module)
+- Mathematical domain validation and constraint handling
+- Scientific computing concepts (trigonometry, logarithms, exponentiation)
+- Error handling patterns for mathematical operations
+- Unit testing strategies for mathematical software
+- Command-line interface design and user experience considerations
