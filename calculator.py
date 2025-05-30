@@ -1,7 +1,8 @@
-# Simple Calculator in Python
+# Educational Scientific Calculator in Python
+import math
 
-# This calculator performs basic arithmetic operations:
-# Addition, Subtraction, Multiplication, and Division
+# This calculator performs basic arithmetic and advanced scientific operations:
+# Addition, Subtraction, Multiplication, Division, Power, Square Root, Sine, Cosine, and Logarithm
 
 def add(x, y):
     """Function to add two numbers"""
@@ -21,32 +22,91 @@ def divide(x, y):
         return "Error! Division by zero."
     return x / y
 
+def power(x, y):
+    """Function to calculate x raised to the power of y"""
+    return x ** y
+
+def square_root(x):
+    """Function to calculate square root of a number"""
+    if x < 0:
+        raise ValueError("Square root requires non-negative input")
+    return math.sqrt(x)
+
+def sine(x):
+    """Function to calculate sine of a number (in radians)"""
+    return math.sin(x)
+
+def cosine(x):
+    """Function to calculate cosine of a number (in radians)"""
+    return math.cos(x)
+
+def logarithm(x):
+    """Function to calculate natural logarithm of a number"""
+    if x <= 0:
+        raise ValueError("Logarithm requires positive input")
+    return math.log(x)
+
 # Display available operations
 print("Select operation:")
 print("1. Add")
 print("2. Subtract")
 print("3. Multiply")
 print("4. Divide")
+print("5. Power")
+print("6. Square Root")
+print("7. Sine (radians)")
+print("8. Cosine (radians)")
+print("9. Logarithm")
 
 # Take user input for operation
-choice = input("Enter choice (1/2/3/4): ")
+choice = input("Enter choice (1/2/3/4/5/6/7/8/9): ")
 
-# Take user input for numbers
+# Determine if operation requires one or two operands
+dual_operand_operations = ['1', '2', '3', '4', '5']  # add, subtract, multiply, divide, power
+single_operand_operations = ['6', '7', '8', '9']     # square_root, sine, cosine, logarithm
+
+# Take user input for numbers based on operation type
 try:
-    num1 = float(input("Enter first number: "))
-    num2 = float(input("Enter second number: "))
+    if choice in dual_operand_operations:
+        # Operations requiring two operands
+        num1 = float(input("Enter first number: "))
+        num2 = float(input("Enter second number: "))
+    elif choice in single_operand_operations:
+        # Operations requiring one operand
+        num1 = float(input("Enter number: "))
+        num2 = None  # Not needed for single operand operations
+    else:
+        print("Invalid input. Please choose a valid operation.")
+        exit()
 except ValueError:
     print("Invalid input. Please enter numeric values.")
     exit()
 
-# Perform calculation based on user's choice
-if choice == '1':
-    print("Result:", add(num1, num2))
-elif choice == '2':
-    print("Result:", subtract(num1, num2))
-elif choice == '3':
-    print("Result:", multiply(num1, num2))
-elif choice == '4':
-    print("Result:", divide(num1, num2))
-else:
-    print("Invalid input. Please choose a valid operation.")
+# Perform calculation based on user's choice with enhanced error handling
+try:
+    if choice == '1':
+        print("Result:", add(num1, num2))
+    elif choice == '2':
+        print("Result:", subtract(num1, num2))
+    elif choice == '3':
+        print("Result:", multiply(num1, num2))
+    elif choice == '4':
+        print("Result:", divide(num1, num2))
+    elif choice == '5':
+        print("Result:", power(num1, num2))
+    elif choice == '6':
+        print("Result:", square_root(num1))
+    elif choice == '7':
+        print("Result:", sine(num1))
+    elif choice == '8':
+        print("Result:", cosine(num1))
+    elif choice == '9':
+        print("Result:", logarithm(num1))
+    else:
+        print("Invalid input. Please choose a valid operation.")
+except ValueError as e:
+    # Handle domain-specific mathematical errors
+    print(f"Mathematical error: {str(e)}")
+except Exception as e:
+    # Handle any other unexpected errors
+    print(f"An unexpected error occurred: {str(e)}")
